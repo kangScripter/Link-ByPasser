@@ -26,7 +26,7 @@ async def start(bot, message):
         "**I Am Link Bypasser Bot, Just Send Me Short Link And Get Direct Link")
 
 
-if @bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')) :
+@bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')) 
   async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
@@ -35,7 +35,7 @@ if @bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')) :
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
 
-elif @bot.on_message(filters.regex(r'\bhttps?://.*droplink\.co\S+')) :
+@bot.on_message(filters.regex(r'\bhttps?://.*droplink\.co\S+'))
   async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
@@ -43,8 +43,8 @@ elif @bot.on_message(filters.regex(r'\bhttps?://.*droplink\.co\S+')) :
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
-else:
-   await message.reply('**Link Correct ga Petu bro 🙂**')
+
+   #await message.reply('**Link Correct ga Petu bro 🙂**')
 
 
 async def gplinks_bypass(url):
