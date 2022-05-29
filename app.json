@@ -1,6 +1,36 @@
 {
-    "name": "Link-Bypasser",
+    "name": "Link_Bypasser",
     "description": "Short Link To Direct Link",
     "keywords": [
-        "Telegram",
-        "LinkByPass" ]
+        "telegram",
+        "directlink"
+    ],
+    "website": "https://github.com/Mahesh0253/GPlink-bot",
+    "repository": "https://github.com/Mahesh0253/GPlink-bot",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your bot token",
+            "value": ""
+        },
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": ""
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
