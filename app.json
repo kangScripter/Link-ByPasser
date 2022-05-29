@@ -20,7 +20,9 @@
         "API_HASH": {
             "description": "Get this value from https://my.telegram.org",
             "value": ""
+        }
     },
+
     "addons": [
         {
             "plan": "heroku-postgresql",
