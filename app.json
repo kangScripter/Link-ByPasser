@@ -3,8 +3,8 @@
     "description": "Short Link To Direct Link",
     "keywords": [
         "Telegram",
-        "LinkByPass"
-    },
+        "LinkByPass"]
+       }
     "addons": [],
     "buildpacks": [
         {
