@@ -13,6 +13,8 @@ bot = Client('gplink bot',
              api_hash=API_HASH,
              bot_token=BOT_TOKEN)
 
+url = link 
+
 @bot.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
     await message.reply(
