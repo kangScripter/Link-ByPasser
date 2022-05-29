@@ -27,7 +27,7 @@ async def start(bot, message):
 
 '''
 @bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')) 
-  async def link_handler(bot, message):
+async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await gplinks_bypass(link)
@@ -36,7 +36,7 @@ async def start(bot, message):
         await message.reply(f'**Error** : {e}', quote=True)
 
 @bot.on_message(filters.regex(r'\bhttps?://.*droplink\.co\S+'))
-  async def link_handler(bot, message):
+async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await droplink_bypass(link)
@@ -48,20 +48,20 @@ async def start(bot, message):
 '''
 
 @bot.on_message(filters.regex(r'\bhttps?://\S+'))
-  link = message.matches[0].group(0)
-  if 'gplinks.co' in link:
+link = message.matches[0].group(0)
+if 'gplinks.co' in link:
     try:
         short_link = await gplinks_bypass(link)
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
-  elif 'droplinks.co' in link:
+elif 'droplinks.co' in link:
      try:
         short_link = await droplink_bypass(link)
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
-  else:
+else:
     await message.reply('**Link Correct ga Petu bro 🙂**')
 
 async def gplinks_bypass(url):
