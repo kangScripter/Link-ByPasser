@@ -63,7 +63,7 @@ async def link_handler(bot, message):
      except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
   else:
-    await message.reply('**Link Correct ga Petu bro 🙂**')
+    pass
 
 async def gplinks_bypass(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
