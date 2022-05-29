@@ -66,3 +66,6 @@ def gplinks_bypass(url: str):
         return res.json()['url'].replace('\/','/')
     except: return 
            Error=e
+
+
+bot.run()
