@@ -117,7 +117,7 @@ async def droplink_bypass(url):
     final_url = f'{p.scheme}://{p.netloc}/links/go'
 
     time.sleep(3.1)
-    res = client.post(final_url, data=data, headers=h).json()
+    res = client.post(final_url, data=data, headers=h)
     try:
         return res.json()['url'].replace('\/','/')
     except: 
