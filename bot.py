@@ -60,7 +60,7 @@ async def link_handler(bot, message):
      try:
         short_link = await droplink_bypass(link)
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
-    except Exception as e:
+     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
   else:
     await message.reply('**Link Correct ga Petu bro 🙂**')
