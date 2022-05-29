@@ -93,10 +93,12 @@ async def droplink_bypass(url):
         }
         p = urlparse(url)
         final_url = f"{p.scheme}://{p.netloc}/links/go"
-    time.sleep(3.1)
-    res = client.post(final_url, headers=h, data=data)
-    try:
-        return res.json()['url'].replace('\/','/')
+        p = urlparse(url)
+        final_url = f"{p.scheme}://{p.netloc}/links/go"
+        sleep(3.1)
+        res = client.post(final_url, data=data, headers=h).json()
+        if res["status"] == "success":
+            return res.json()['url'].replace('\/','/')
     except: 
         return "An Error Occured "
             
