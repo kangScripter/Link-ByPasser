@@ -33,7 +33,7 @@ async def link_handler(bot, message):
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
 
-@bot.on_message(filters.regex(r'\bhttps?://.*droplinks\.co\S+'))
+@bot.on_message(filters.regex(r'\bhttps?://.*droplink\.co\S+'))
 async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
