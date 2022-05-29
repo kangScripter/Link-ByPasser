@@ -77,35 +77,34 @@ async def gplinks_bypass(url):
     except: 
         return "An Error Occured "
 
-async def droplink_bypass(url):
-    try:
-        client = requests.Session()
-        res = client.get(url, timeout=5)
-        ref = re.findall("action[ ]{0,}=[ ]{0,}['|\"](.*?)['|\"]", res.text)[0]
-        h = {"referer": ref}
-        res = client.get(url, headers=h)
-        bs4 = BeautifulSoup(res.content, "html.parser")
-        inputs = bs4.find_all("input")
-        data = {input.get("name"): input.get("value") for input in inputs}
-        h = {
-            "content-type": "application/x-www-form-urlencoded",
-            "x-requested-with": "XMLHttpRequest",
-        }
-        p = urlparse(url)
-        final_url = f"{p.scheme}://{p.netloc}/links/go"
-        p = urlparse(url)
-        final_url = f"{p.scheme}://{p.netloc}/links/go"
-        sleep(3.1)
-        r = client.post(final_url, data=data, headers=h)
-        res = r.json()
-        if res["status"] == "success":
-            return res['url']
-        else:
-           print()
+def droplink_bypass(url):
+    client = requests.Session()
+    res = client.get(url)
+
+    ref = re.findall("action[ ]{0,}=[ ]{0,}['|\"](.*?)['|\"]", res.text)[0]
+
+    h = {'referer': ref}
+    res = client.get(url, headers=h)
+
+    bs4 = BeautifulSoup(res.content, 'lxml')
+    inputs = bs4.find_all('input')
+    data = { input.get('name'): input.get('value') for input in inputs }
+
+    h = {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-requested-with': 'XMLHttpRequest'
+    }
+    p = urlparse(url)
+    final_url = f'{p.scheme}://{p.netloc}/links/go'
+
+    time.sleep(3.1)
+    res = client.post(final_url, data=data, headers=h).json()
+
+    return res.json()['url'].replace('\/','/')
     except: 
         return "An Error Occured "
-            
          
+
 
 
 bot.run()
