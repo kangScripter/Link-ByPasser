@@ -12,10 +12,9 @@ BOT_TOKEN = environ.get('BOT_TOKEN')
 #API_KEY = environ.get('API_KEY')
 
 bot = Client('LinkByPass bot',
-             api_id=API_ID,
-             api_hash=API_HASH,
-             bot_token=BOT_TOKEN)
-
+             api_id= "1543212",
+             api_hash= "d47de4b25ddf79a08127b433de32dc84",
+             bot_token= "5462389029:AAHiRZVyr-WL2e80y0wz-e7hd9oTOIlM5iY")
 
 
 @bot.on_message(filters.command('start') & filters.private)
