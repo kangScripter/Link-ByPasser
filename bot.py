@@ -33,6 +33,15 @@ async def link_handler(bot, message):
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
 
+@bot.on_message(filters.regex(r'\bhttps?://.*droplinks\.co\S+'))
+async def link_handler(bot, message):
+    link = message.matches[0].group(0)
+    try:
+        short_link = await gplinks_bypass(link)
+        await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
+    except Exception as e:
+        await message.reply(f'**Error** : {e}', quote=True)
+
 
 
 async def gplinks_bypass(url):
@@ -87,11 +96,10 @@ async def droplink_bypass(url):
     final_url = f'{p.scheme}://{p.netloc}/links/go'
 
     time.sleep(3.1)
-    res = client.post(final_url, data=data, headers=h).json()
-
-    return res
-            
-         
-
+    res = client.post(final_url, headers=h, data=data)
+    try:
+        return res.json()['url'].replace('\/','/')
+    except: 
+        return "An Error Occured "
 
 bot.run()
