@@ -50,12 +50,12 @@ async def link_handler(bot, message):
 
 @bot.on_message(filters.regex(r"(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+"))
 async def link_handler(bot, message):
-  await message.send_reaction(emoji="🥱",big= True)
+  await message.reply("Processing....",quote = True)
   link = message.matches[0].group(0)
   if 'gplinks.co' in link:
     try:
         short_link = await gplinks_bypass(link)
-        await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
+        await message.edit(f'**Here Is Your Direct Link** : {short_link}')
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
   elif 'droplink.co' in link:
