@@ -7,7 +7,7 @@
     ],
     "website": "",
     "repository": "",
-    "stack": "heroku-20"
+    "stack": "heroku-20",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token",
