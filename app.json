@@ -1,12 +1,12 @@
 {
-    "name": "GPlink_Bot",
-    "description": "Make short link by using GPlink API key",
+    "name": "Link-Bypasser",
+    "description": "Short Link To Direct Link",
     "keywords": [
         "telegram",
-        "gplink"
+        "Link ByPasser"
     ],
-    "website": "https://github.com/Mahesh0253/GPlink-bot",
-    "repository": "https://github.com/Mahesh0253/GPlink-bot",
+    "website": "",
+    "repository": "",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token",
