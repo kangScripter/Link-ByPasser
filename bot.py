@@ -80,10 +80,9 @@ async def gplinks_bypass(url):
 async def droplink_bypass(url):
     client = requests.Session()
     res = client.get(url)
-    p = urlparse(url)
-    final_url = f'{p.scheme}://{p.netloc}/links/go'
 
     ref = re.findall("action[ ]{0,}=[ ]{0,}['|\"](.*?)['|\"]", res.text)[0]
+
     h = {'referer': ref}
     res = client.get(url, headers=h)
 
@@ -95,12 +94,12 @@ async def droplink_bypass(url):
         'content-type': 'application/x-www-form-urlencoded',
         'x-requested-with': 'XMLHttpRequest'
     }
+    p = urlparse(url)
+    final_url = f'{p.scheme}://{p.netloc}/links/go'
 
     time.sleep(3.1)
-    res = client.post(final_url, headers=h, data=data)
-    try:
-        return res.json()['url'].replace('\/','/')
-    except: 
-        return "An Error Occured "
+    res = client.post(final_url, data=data, headers=h).json()
+
+    return res
 
 bot.run()
