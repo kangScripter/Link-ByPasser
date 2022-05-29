@@ -77,7 +77,7 @@ async def gplinks_bypass(url):
     except: 
         return "An Error Occured "
 
-def droplink_bypass(url):
+async def droplink_bypass(url):
     client = requests.Session()
     res = client.get(url)
 
