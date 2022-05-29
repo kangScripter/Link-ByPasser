@@ -26,7 +26,7 @@ async def start(bot, message):
         "**I Am Link Bypasser Bot, Just Send Me Short Link And Get Direct Link")
 
 '''
-@bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')) 
+@bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')))
 async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
