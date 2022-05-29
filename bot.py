@@ -44,7 +44,7 @@ elif @bot.on_message(filters.regex(r'\bhttps?://.*droplink\.co\S+')):
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
 else:
-   await message.reply(f'**Link Correct ga Petu bro 🙂**)
+   await message.reply('**Link Correct ga Petu bro 🙂**')
 
 
 async def gplinks_bypass(url):
