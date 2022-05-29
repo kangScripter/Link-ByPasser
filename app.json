@@ -3,17 +3,4 @@
     "description": "Short Link To Direct Link",
     "keywords": [
         "Telegram",
-        "LinkByPass"]
-       }
-    "addons": [],
-    "buildpacks": [
-        {
-            "url": "heroku/python"
-        }
-    ],
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "free"
-        }
-    }
+        "LinkByPass" ]
