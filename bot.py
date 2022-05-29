@@ -54,7 +54,7 @@ async def link_handler(bot, message):
   if 'gplinks.co' in link:
     try:
         short_link = await gplinks_bypass(link)
-        message.reply_animation(213115,quote = True)
+        await message.reply_animation(213115,quote = True)
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
