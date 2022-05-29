@@ -25,7 +25,7 @@ async def start(bot, message):
         f"**I Am Alive {message.chat.first_name}**\n"
         "**I Am Link Bypasser Bot, Just Send Me Short Link And Get Direct Link")
 
-
+'''
 @bot.on_message(filters.regex(r'\bhttps?://.*gplinks\.co\S+')) 
   async def link_handler(bot, message):
     link = message.matches[0].group(0)
@@ -45,7 +45,24 @@ async def start(bot, message):
         await message.reply(f'**Error** : {e}', quote=True)
 
    #await message.reply('**Link Correct ga Petu bro 🙂**')
+'''
 
+@bot.on_message(filters.regex(r'\bhttps?://\S+'))
+  link = message.matches[0].group(0)
+  if 'gplinks.co' in link:
+    try:
+        short_link = await gplinks_bypass(link)
+        await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
+    except Exception as e:
+        await message.reply(f'**Error** : {e}', quote=True)
+  elif 'droplinks.co' in link:
+     try:
+        short_link = await droplink_bypass(link)
+        await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
+    except Exception as e:
+        await message.reply(f'**Error** : {e}', quote=True)
+  else:
+    await message.reply('**Link Correct ga Petu bro 🙂**')
 
 async def gplinks_bypass(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
