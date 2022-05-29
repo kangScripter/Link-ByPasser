@@ -2,12 +2,11 @@
     "name": "Link-Bypasser",
     "description": "Short Link To Direct Link",
     "keywords": [
-        "telegram",
-        "Link ByPasser"
+        "Telegram",
+        "LinkByPass"
     ],
-    "website": "",
-    "repository": "",
-    "stack": "heroku-20",
+    "website": "https://github.com/Mahesh0253/GPlink-bot",
+    "repository": "https://github.com/Mahesh0253/GPlink-bot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token",
@@ -21,7 +20,7 @@
             "description": "Get this value from https://my.telegram.org",
             "value": ""
         }
-},
+    },
     "addons": [],
     "buildpacks": [
         {
