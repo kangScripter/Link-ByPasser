@@ -6,17 +6,17 @@ from os import environ
 import aiohttp
 from pyrogram import Client, filters
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
-API_KEY = environ.get('API_KEY')
+API_ID = 5540967 #environ.get('API_ID')
+API_HASH = "eedf0196b0533f361b51b5b7082358e9"#environ.get('API_HASH')
+BOT_TOKEN = "1814442638:AAEmIzweKsQ7HTZlp3vsfVT3UrXTt38aJkM"#environ.get('BOT_TOKEN')
+#API_KEY = environ.get('API_KEY')
 
 bot = Client('gplink bot',
              api_id=API_ID,
              api_hash=API_HASH,
              bot_token=BOT_TOKEN)
 
-url = link 
+
 
 @bot.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
@@ -30,13 +30,13 @@ async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
         short_link = await gplinks_bypass(link)
-        await message.reply(f'Here is your [short link]({final_url})', quote=True)
+        await message.reply(f'Here is your {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
 
 
-def gplinks_bypass(url: str):
+async def gplinks_bypass(url):
     client = cloudscraper.create_scraper(allow_brotli=False)
     p = urlparse(url)
     final_url = f'{p.scheme}://{p.netloc}/links/go'
@@ -64,8 +64,10 @@ def gplinks_bypass(url: str):
     res = client.post(final_url, headers=h, data=data)
     try:
         return res.json()['url'].replace('\/','/')
-    except: return 
-           Error=e
+    except: 
+        return "An Error Occured "
+            
+         
 
 
 bot.run()
