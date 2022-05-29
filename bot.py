@@ -96,7 +96,7 @@ async def droplink_bypass(url):
         sleep(3.1)
         res = client.post(final_url, data=data, headers=h).json()
         if res["status"] == "success":
-        return res["url"]
+        return res.json()['url'].replace('\/','/')
     except: 
         return "An Error Occured "
             
