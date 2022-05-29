@@ -1,3 +1,8 @@
+import time
+import cloudscraper
+from urllib.parse import urlparse
+from bs4 import BeautifulSoup
+
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
