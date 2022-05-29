@@ -56,7 +56,7 @@ async def link_handler(bot, message):
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'**Error** : {e}', quote=True)
-  elif 'droplinks.co' in link:
+  elif 'droplink.co' in link:
      try:
         short_link = await droplink_bypass(link)
         await message.reply(f'**Here Is Your Direct Link** : {short_link}', quote=True)
