@@ -47,7 +47,7 @@ async def link_handler(bot, message):
    #await message.reply('**Link Correct ga Petu bro 🙂**')
 '''
 
-@bot.on_message(filters.regex(r'\bhttps?://\S+')))
+@bot.on_message(filters.regex(r'\bhttps?://\S+'))
 link = message.matches[0].group(0)
 if 'gplinks.co' in link:
     try:
