@@ -97,7 +97,7 @@ async def droplink_bypass(url):
         res = client.post(final_url, data=data, headers=h).json()
         if res["status"] == "success":
             return res["url"]
-       except: 
-        return "An Error Occured "
+        return None
+    except Exception as e:
 
 bot.run()
