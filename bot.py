@@ -17,14 +17,14 @@ bot = Client('LinkByPass bot',
              bot_token= "5462389029:AAHiRZVyr-WL2e80y0wz-e7hd9oTOIlM5iY")
 
 
-@bot.on_message(filters.command('start') & filters.private)
+@bot.on_message(filters.command('start'))
 async def start(bot, message):
     await message.reply(
         f"**I Am Alive {message.chat.first_name}**\n"
         "**I Am Link Bypasser Bot, Just Send Me Short Link And Get Direct Link")
 
 
-@bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
+@bot.on_message(filters.regex(r'https?://[^\s]+'))
 async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
