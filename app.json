@@ -21,14 +21,13 @@
             "description": "Get this value from https://my.telegram.org",
             "value": ""
         }
-    },
-
+},
+    "addons": [],
     "buildpacks": [
-      {
-        "url": "heroku/python"
-      }
+        {
+            "url": "heroku/python"
+        }
     ],
-
     "formation": {
         "worker": {
             "quantity": 1,
