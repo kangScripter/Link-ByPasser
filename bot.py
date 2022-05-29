@@ -16,7 +16,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN')
 bot = Client('LinkByPass bot',
              api_id= "1543212",
              api_hash= "d47de4b25ddf79a08127b433de32dc84",
-             bot_token= "5462389029:AAHiRZVyr-WL2e80y0wz-e7hd9oTOIlM5iY")
+             bot_token= "1814442638:AAEmIzweKsQ7HTZlp3vsfVT3UrXTt38aJkM")
 
 
 @bot.on_message(filters.command('start'))
