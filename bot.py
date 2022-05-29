@@ -50,7 +50,7 @@ async def link_handler(bot, message):
 
 @bot.on_message(filters.regex(r"(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+"))
 async def link_handler(bot, message):
-  await message.reply_animation("https://tenor.com/bIcVE.gif",quote = True)
+  await message.react(emoji="🥱",big= True)
   link = message.matches[0].group(0)
   if 'gplinks.co' in link:
     try:
